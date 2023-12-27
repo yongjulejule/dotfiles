@@ -11,5 +11,6 @@ if [[ -d ./zsh ]]; then
 fi
 
 cp -R ~/.config/nvim/ nvim/
+mkdir -p zsh
 cp ~/.zshrc zsh/
 cp ~/.p10k.zsh zsh/

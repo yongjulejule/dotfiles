@@ -30,7 +30,7 @@
 
 #My Random Emoji
 emojis=( "🔥" "⚡︎" "🦄" "🌈" "🍻" "🚀" "🌙" "✨" )
-RAND_EMOJI_N=$(( $RANDOM % ${#emojis[@]} + 1 )) 
+RAND_EMOJI_N=$(( $RANDOM % ${#emojis[@]} + 1)) 
 
 () {
   emulate -L zsh -o extended_glob
@@ -87,7 +87,7 @@ RAND_EMOJI_N=$(( $RANDOM % ${#emojis[@]} + 1 ))
   # Red prompt symbol if the last command failed.
   typeset -g POWERLEVEL9K_PROMPT_CHAR_ERROR_{VIINS,VICMD,VIVIS}_FOREGROUND=$red
   # Default prompt symbol.
-  typeset -g POWERLEVEL9K_PROMPT_CHAR_OK_VIINS_CONTENT_EXPANSION='${emojis[$RAND_EMOJI_N]:-🦀} ❯'
+  typeset -g POWERLEVEL9K_PROMPT_CHAR_OK_VIINS_CONTENT_EXPANSION='${emojis[$RAND_EMOJI_N]} ❯'
 
   # Default prompt symbol when Error.
   typeset -g POWERLEVEL9K_PROMPT_CHAR_ERROR_VIINS_CONTENT_EXPANSION='🤷 ❯'
