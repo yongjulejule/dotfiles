@@ -6,12 +6,13 @@ alias wget="curl -O -L "
 export ZSH="$HOME/.oh-my-zsh"
 export MANPATH="/usr/local/man:$MANPATH"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-
+export BAT_THEME="Catppuccin-mocha"
+export PAGER="bat -l man -p"
 export EDITOR=`which nvim`
-
 export LANG=en_US.UTF-8
 export JAVA_HOME=$(/usr/libexec/java_home -v 11)
 export XDG_CONFIG_HOME="$HOME/.config"
+export FZF_DEFAULT_COMMAND='fd --type f'
 
 plugins=(
 	git
