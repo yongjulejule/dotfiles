@@ -9,6 +9,11 @@
 - `${XDG_CONFIG_HOME:-$HOME/.config}/nvim`
   - tree sitter wgsl 추가 설치 필요 https://github.com/szebniok/tree-sitter-wgsl
 
+# hammerspoon
+
+- `brew install hammerspoon --cask`
+- `cp -R hammerspoon/* ${XDG_CONFIG_HOME}/.hammerspoon/`
+
 # scripts
 
 ## check-diff.sh
