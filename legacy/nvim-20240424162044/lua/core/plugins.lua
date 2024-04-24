@@ -1,5 +1,5 @@
 require("lazy").setup({
-  { "catppuccin/nvim",       name = "mocha", priority = 1000 },
+  { "catppuccin/nvim", name = "mocha", priority = 1000 },
   { "numToStr/Comment.nvim", lazy = false },
   "nvim-tree/nvim-tree.lua",
   "nvim-tree/nvim-web-devicons",
@@ -14,21 +14,11 @@ require("lazy").setup({
   "L3MON4D3/LuaSnip",
   "saadparwaiz1/cmp_luasnip",
   "github/copilot.vim",
-  -- mason
   "williamboman/mason.nvim",
   "williamboman/mason-lspconfig.nvim",
-  -- lint
-  "mfussenegger/nvim-lint",
-  "rshkarin/mason-nvim-lint",
-  -- formatter
-  'jose-elias-alvarez/null-ls.nvim',
-  'MunifTanjim/prettier.nvim',
-  -- lsp
   "neovim/nvim-lspconfig",
-  -- telescope
   {
-    "nvim-telescope/telescope.nvim",
-    tag = "0.1.4",
+    "nvim-telescope/telescope.nvim", tag = "0.1.4",
     dependencies = { "nvim-lua/plenary.nvim" }
   },
   "wakatime/vim-wakatime",
@@ -38,14 +28,12 @@ require("lazy").setup({
     event = "InsertEnter",
     opts = {} -- this is equalent to setup({}) function
   },
-  { 'akinsho/bufferline.nvim',                  version = "*", dependencies = 'nvim-tree/nvim-web-devicons' },
+  'jose-elias-alvarez/null-ls.nvim',
+  'MunifTanjim/prettier.nvim',
+  {'akinsho/bufferline.nvim', version = "*", dependencies = 'nvim-tree/nvim-web-devicons'},
   {
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
-    opts = {}
-  },
-  {
-    'stevearc/conform.nvim',
-    opts = {},
+    opts = { }
   },
 })

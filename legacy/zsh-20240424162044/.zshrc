@@ -6,12 +6,13 @@ alias wget="curl -O -L "
 export ZSH="$HOME/.oh-my-zsh"
 export MANPATH="/usr/local/man:$MANPATH"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-
+export BAT_THEME="Catppuccin-mocha"
+export PAGER="bat -l man -p"
 export EDITOR=`which nvim`
-
 export LANG=en_US.UTF-8
 export JAVA_HOME=$(/usr/libexec/java_home -v 11)
 export XDG_CONFIG_HOME="$HOME/.config"
+export FZF_DEFAULT_COMMAND='fd --type f'
 
 plugins=(
 	git
@@ -49,6 +50,8 @@ fpath=(~/.stripe $fpath)
 autoload -Uz compinit && compinit -i
 
 autoload -Uz compinit && compinit
+export AWS_DEFAULT_PROFILE=seesoio
+
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
@@ -78,6 +81,13 @@ function setup_path {
     *) export PATH="$BUN_PATH:$PATH" ;;
   esac # bun end
 
+  # pnpm
+  export PNPM_HOME="/Users/yongjunlee/Library/pnpm"
+
+  case ":$PATH:" in
+    *":$PNPM_HOME:"*) ;;
+    *) export PATH="$PNPM_HOME:$PATH" ;;
+  esac # pnpm end
 
   # go bin
   export GO_PATH="${HOME}/go/bin"
@@ -110,14 +120,6 @@ function trans-vim {
   rm $temp $temp2
 }
 
-function pbpasteToFile {
-  if [[ -z $1 ]] ; then
-    echo "Usage: pbpasteToFile <filename>"
-    return
-  fi
-  pbpaste > $1
-}
-
 
 
 # bun completions
@@ -128,26 +130,13 @@ export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# zoxide
-eval "$(zoxide init zsh)"
-alias cd=z
-alias cdi=zi
 
-
-
-function download_image_tistory() {
-    # Step 1: Get link from clipboard
-    link=$(pbpaste)
-
-    # Step 2: Extract the value of the query string parameter 'fname'
-    fname=${link#*fname=}
-
-    # Step 3: URL decode the value of 'fname'
-    decoded_fname=$(echo -e "${fname//%/\\x}")
-
-    extension="${decoded_fname##*.}"
-
-    # Step 4: Run curl -O with the decoded filename
-    curl -o $(date -Iseconds).${extension} "$decoded_fname"
+function ollama-sum {
+  ( echo '[INST]Summarize the following text :'
+    links -codepage utf-8 \
+          -force-html \
+          -width 500 \
+          -dump $1 |
+      sed 's/   */ /'
+  echo '[/INST]') | ollama run mistral
 }
-
