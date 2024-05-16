@@ -13,6 +13,8 @@ disabled = false
 style = "bold lavender"
 disabled = false
 min_time = 500
+show_milliseconds = true
+
 
 [aws]
 disabled = true
@@ -24,9 +26,11 @@ error_symbol = "[❯](red)"
 vimcmd_symbol = "[❮](green)"
 
 [directory]
-truncation_length = 4
+truncation_length = 3
 # Catppuccin 'lavender'
 style = "bold lavender"
+# fish_style_pwd_dir_length = 2
+home_symbol = "🏡 "
 
 # palette tables should be last in the config ⚓️
 [palettes.catppuccin_macchiato]

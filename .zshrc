@@ -30,7 +30,6 @@ function setup_starship() {
     return
   fi
   eval "$(starship init zsh)"
-  starship preset pastel-powerline -o ${XDG_CONFIG_HOME:-$HOME/.config}/starship.toml
 }
 
 setup_starship
