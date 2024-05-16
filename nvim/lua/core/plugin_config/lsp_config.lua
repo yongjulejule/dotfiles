@@ -28,7 +28,43 @@ require("lspconfig").lua_ls.setup {
   }
 }
 
-require("lspconfig").tsserver.setup({})
+-- local function organize_imports()
+--   local params = {
+--     command = "_typescript.organizeImports",
+--     arguments = { vim.api.nvim_buf_get_name(0) },
+--     title = ""
+--   }
+--   vim.lsp.buf.execute_command(params)
+-- end
+--
+-- lspconfig.tsserver.setup {
+--   on_attach = on_attach,
+--   capabilities = capabilities,
+--   commands = {
+--     OrganizeImports = {
+--       organize_imports,
+--       description = "Organize Imports"
+--     }
+--   }
+-- }
+
+local function organize_imports()
+  local params = {
+    command = "_typescript.organizeImports",
+    arguments = { vim.api.nvim_buf_get_name(0) },
+    title = ""
+  }
+  vim.lsp.buf.execute_command(params)
+end
+require("lspconfig").tsserver.setup({
+  capabilities = capabilities,
+  commands = {
+    OrganizeImports = {
+      organize_imports,
+      description = "Organize Imports"
+    }
+  }
+})
 
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),
@@ -56,4 +92,13 @@ vim.api.nvim_create_autocmd('LspAttach', {
       vim.lsp.buf.format { async = true }
     end, opts)
   end,
+})
+
+require("lspconfig").eslint.setup({
+  on_attach = function(client, bufnr)
+    vim.api.nvim_create_autocmd('BufWritePre', {
+      buffer = bufnr,
+      command = "EslintFixAll",
+    })
+  end
 })

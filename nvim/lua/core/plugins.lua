@@ -38,7 +38,11 @@ require("lazy").setup({
     event = "InsertEnter",
     opts = {} -- this is equalent to setup({}) function
   },
-  { 'akinsho/bufferline.nvim',                  version = "*", dependencies = 'nvim-tree/nvim-web-devicons' },
+  {
+    'akinsho/bufferline.nvim',
+    version = "*",
+    dependencies = 'nvim-tree/nvim-web-devicons'
+  },
   {
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
