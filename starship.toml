@@ -3,11 +3,16 @@ palette = "catppuccin_mocha"
 
 format="""$all"""
 
-right_format="""$time"""
+right_format="""$cmd_duration$time"""
 
 [time]
 style = "bold lavender"
 disabled = false
+
+[cmd_duration]
+style = "bold lavender"
+disabled = false
+min_time = 500
 
 [aws]
 disabled = true
