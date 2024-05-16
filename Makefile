@@ -45,7 +45,6 @@ setup_starship:
 		sh -c "$$(curl -fsSL https://starship.rs/install.sh)" -- --yes; \
 	fi
 	@ln -sf $(CURDIR)/starship.toml $(HOME)/.config/starship.toml
-  @starship preset pastel-powerline -o ${XDG_CONFIG_HOME:-$HOME/.config}/starship.toml
 	
 
 # Setup neovim
