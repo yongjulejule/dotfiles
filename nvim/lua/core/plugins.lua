@@ -52,4 +52,7 @@ require("lazy").setup({
     'stevearc/conform.nvim',
     opts = {},
   },
+  {
+    'goolord/alpha-nvim',
+  }
 })

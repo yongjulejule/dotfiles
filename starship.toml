@@ -15,6 +15,9 @@ disabled = false
 min_time = 500
 show_milliseconds = true
 
+[package]
+disabled = true
+
 
 [aws]
 disabled = true
