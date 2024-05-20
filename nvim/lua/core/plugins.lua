@@ -3,16 +3,11 @@ require("lazy").setup({
   { "numToStr/Comment.nvim", lazy = false },
   "nvim-tree/nvim-tree.lua",
   "nvim-tree/nvim-web-devicons",
-  "nvim-lualine/lualine.nvim",
   "nvim-treesitter/nvim-treesitter",
   "lewis6991/gitsigns.nvim",
   "tpope/vim-fugitive",
   "tpope/vim-surround",
   "stevearc/oil.nvim",
-  "hrsh7th/nvim-cmp",
-  "hrsh7th/cmp-nvim-lsp",
-  "L3MON4D3/LuaSnip",
-  "saadparwaiz1/cmp_luasnip",
   "github/copilot.vim",
   -- mason
   "williamboman/mason.nvim",
@@ -25,6 +20,15 @@ require("lazy").setup({
   'MunifTanjim/prettier.nvim',
   -- lsp
   "neovim/nvim-lspconfig",
+  "L3MON4D3/LuaSnip",
+  "hrsh7th/nvim-cmp",
+  "hrsh7th/cmp-nvim-lsp",
+  "saadparwaiz1/cmp_luasnip",
+  {
+    "pmizio/typescript-tools.nvim",
+    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+    opts = {},
+  },
   -- telescope
   {
     "nvim-telescope/telescope.nvim",
@@ -38,11 +42,17 @@ require("lazy").setup({
     event = "InsertEnter",
     opts = {} -- this is equalent to setup({}) function
   },
+  -- UI
   {
-    'akinsho/bufferline.nvim',
+    'nvim-lualine/lualine.nvim', -- statusline
+    dependencies = { 'nvim-tree/nvim-web-devicons' }
+  },
+  {
+    'akinsho/bufferline.nvim', -- bufferline
     version = "*",
     dependencies = 'nvim-tree/nvim-web-devicons'
   },
+  -- etc
   {
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
@@ -68,10 +78,9 @@ require("lazy").setup({
       -- refer to the configuration section below
     }
   },
-
   {
-    "pmizio/typescript-tools.nvim",
-    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-    opts = {},
+    "ggandor/leap.nvim",
+    dependencies = { "tpope/vim-repeat" },
+
   }
 })
