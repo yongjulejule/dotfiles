@@ -12,7 +12,7 @@ lsp_defaults.capabilities = vim.tbl_deep_extend(
   require('cmp_nvim_lsp').default_capabilities()
 )
 
-require("lspconfig").lua_ls.setup {
+lspconfig.lua_ls.setup {
   settings = {
     Lua = {
       diagnostics = {
@@ -56,7 +56,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
-require("lspconfig").eslint.setup({
+lspconfig.eslint.setup({
   on_attach = function(client, bufnr)
     vim.api.nvim_create_autocmd('BufWritePre', {
       buffer = bufnr,
@@ -79,3 +79,5 @@ require("lspconfig").eslint.setup({
   --   },
   -- },
 })
+
+lspconfig.gleam.setup({})
