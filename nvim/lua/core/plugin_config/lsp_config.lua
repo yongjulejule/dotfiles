@@ -1,5 +1,5 @@
 require("mason-lspconfig").setup({
-  ensure_installed = { "lua_ls", "tsserver" }
+  ensure_installed = { "lua_ls", "tsserver", "eslint" },
 })
 
 local lspconfig = require('lspconfig')
@@ -27,26 +27,6 @@ require("lspconfig").lua_ls.setup {
     },
   }
 }
-
--- local function organize_imports()
---   local params = {
---     command = "_typescript.organizeImports",
---     arguments = { vim.api.nvim_buf_get_name(0) },
---     title = ""
---   }
---   vim.lsp.buf.execute_command(params)
--- end
---
--- lspconfig.tsserver.setup {
---   on_attach = on_attach,
---   capabilities = capabilities,
---   commands = {
---     OrganizeImports = {
---       organize_imports,
---       description = "Organize Imports"
---     }
---   }
--- }
 
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),
@@ -82,5 +62,20 @@ require("lspconfig").eslint.setup({
       buffer = bufnr,
       command = "EslintFixAll",
     })
-  end
+  end,
+  -- filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+  -- settings = {
+  --   workingDirectory = {
+  --     mode = "auto",
+  --   },
+  --   format = {
+  --     enable = true,
+  --   },
+  --   lint = {
+  --     enable = true,
+  --   },
+  --   diagnostics = {
+  --     enable = true,
+  --   },
+  -- },
 })
