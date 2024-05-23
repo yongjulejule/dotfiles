@@ -1,18 +1,7 @@
 require('telescope').setup({
   file_ignore_patterns = { "node%_modules/.*" },
-  pickers = {
-    find_files = {
-      theme = "dropdown",
-    },
-    live_grep = {
-      theme = "dropdown",
-    },
-    buffers = {
-      theme = "dropdown",
-    },
-    help_tags = {
-      theme = "dropdown",
-    },
+  defaults = {
+    layout_strategy = "flex",
   },
 })
 local builtin = require('telescope.builtin')
