@@ -82,5 +82,11 @@ require("lazy").setup({
     "ggandor/leap.nvim",
     dependencies = { "tpope/vim-repeat" },
 
+  },
+  {
+    'akinsho/toggleterm.nvim',
+    version = "*",
+    config = true
   }
+
 })
