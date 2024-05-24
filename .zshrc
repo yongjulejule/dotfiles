@@ -41,8 +41,10 @@ export XDG_CONFIG_HOME="$HOME/.config"
 
 # SECTION - KEY BINDINGS
 
-bindkey ^k up-line-or-beginning-search
+bindkey ^h backward-delete-char # same to default
 bindkey ^j down-line-or-beginning-search
+bindkey ^k up-line-or-beginning-search
+bindkey ^l forward-char
 
 # SECTION - Completion
 
