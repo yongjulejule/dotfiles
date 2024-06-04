@@ -16,7 +16,6 @@ require("lazy").setup({
   "mfussenegger/nvim-lint",
   "rshkarin/mason-nvim-lint",
   -- formatter
-  'jose-elias-alvarez/null-ls.nvim',
   'MunifTanjim/prettier.nvim',
   -- lsp
   "neovim/nvim-lspconfig",
