@@ -34,8 +34,8 @@ require("lazy").setup({
     tag = "0.1.4",
     dependencies = { "nvim-lua/plenary.nvim" }
   },
-  "wakatime/vim-wakatime",
   { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+  "wakatime/vim-wakatime",
   {
     'windwp/nvim-autopairs',
     event = "InsertEnter",
