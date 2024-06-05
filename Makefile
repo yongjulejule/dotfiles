@@ -10,6 +10,7 @@ ZSH_FILES := $(HOME)/.zshrc $(HOME)/.p10k.zsh
 NVIM_DIR := $(shell echo $${XDG_CONFIG_HOME:-$$HOME/.config}/nvim)
 TMUX_CONF := $(HOME)/.tmux.conf
 TPM_DIR := $(HOME)/.tmux/plugins/tpm
+HAMMERSPOON_DIR := $(HOME)/.hammerspoon
 
 .PHONY: help install setup_zsh setup_nvim setup_tmux setup_tmux_dependencies
 
@@ -20,7 +21,8 @@ help:
 	@printf "  $(GREEN)install$(RESET)               Apply all dotfiles to this machine\n"
 
 # Default target
-install: setup_zsh setup_nvim setup_tmux 
+install: setup_zsh setup_nvim setup_tmux setup_hammerspoon
+	@printf "$(GREEN)Dotfiles installed successfully!$(RESET)\n"
 
 # Setup zsh
 setup_zsh:
@@ -56,8 +58,8 @@ setup_nvim:
 # Setup tmux
 setup_tmux:
 	@printf "$(BLUE)Setting up tmux...$(RESET)\n"
-	@ln -sf $(CURDIR)/.tmux.conf $(HOME)/.tmux.conf
 	@$(MAKE) setup_tmux_dependencies
+	@ln -sf $(CURDIR)/.tmux.conf $(HOME)/.tmux.conf
 
 # Install TPM and gitmux
 setup_tmux_dependencies:
@@ -73,3 +75,8 @@ setup_tmux_dependencies:
 		brew tap arl/arl; \
 		brew install gitmux; \
 	fi
+
+setup_hammerspoon:
+	@printf "$(BLUE)Setting up hammerspoon...$(RESET)\n"
+	@mkdir -p $(HAMMERSPOON_DIR)
+	@ln -sf $(CURDIR)/.hammerspoon/* $(HAMMERSPOON_DIR)
