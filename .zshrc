@@ -46,21 +46,6 @@ bindkey ^j down-line-or-beginning-search
 bindkey ^k up-line-or-beginning-search
 bindkey ^l forward-char
 
-# SECTION - Completion
-
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-## kubectl completion
-source <(kubectl completion zsh)
-
-## aws completion
-autoload bashcompinit && bashcompinit
-autoload -Uz compinit && compinit
-complete -C '/opt/homebrew/bin/aws_completer' aws
-
-# bun completions
-[ -s "${HOME}/.bun/_bun" ] && source "${HOME}/.bun/_bun"
-
 # SECTION - PATH
 
 function setup_path {
@@ -94,6 +79,26 @@ function setup_path {
 
 setup_path
 
+# SECTION - Completion
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+## kubectl completion
+source <(kubectl completion zsh)
+
+## aws completion
+autoload bashcompinit && bashcompinit
+autoload -Uz compinit && compinit
+complete -C '/opt/homebrew/bin/aws_completer' aws
+
+# bun completions
+[ -s "${HOME}/.bun/_bun" ] && source "${HOME}/.bun/_bun"
+
+
+# Terraform completions
+# terraform -install-autocomplete
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /opt/homebrew/bin/terraform terraform
 
 # SECTION - my functions
 
