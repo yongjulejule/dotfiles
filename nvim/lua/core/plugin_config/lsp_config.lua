@@ -12,6 +12,7 @@ lsp_defaults.capabilities = vim.tbl_deep_extend(
   require('cmp_nvim_lsp').default_capabilities()
 )
 
+-- lua
 lspconfig.lua_ls.setup {
   settings = {
     Lua = {
@@ -28,6 +29,7 @@ lspconfig.lua_ls.setup {
   }
 }
 
+-- add lsp keymaps after attaching to a buffer
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),
   callback = function(ev)
@@ -53,6 +55,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
+-- eslint
 lspconfig.eslint.setup({
   on_attach = function(client, bufnr)
     vim.api.nvim_create_autocmd('BufWritePre', {
@@ -60,21 +63,10 @@ lspconfig.eslint.setup({
       command = "EslintFixAll",
     })
   end,
-  -- filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
-  -- settings = {
-  --   workingDirectory = {
-  --     mode = "auto",
-  --   },
-  --   format = {
-  --     enable = true,
-  --   },
-  --   lint = {
-  --     enable = true,
-  --   },
-  --   diagnostics = {
-  --     enable = true,
-  --   },
-  -- },
 })
 
+-- gleam
 lspconfig.gleam.setup({})
+
+-- terraform
+lspconfig.terraformls.setup({})
