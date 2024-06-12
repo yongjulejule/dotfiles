@@ -75,6 +75,13 @@ function setup_path {
     *":$GO_PATH:"*) ;;
     *) export PATH="$PATH:$GO_PATH" ;;
   esac # go end
+
+  # pnpm
+  export PNPM_HOME="/Users/yongjunlee/Library/pnpm"
+  case ":$PATH:" in
+    *":$PNPM_HOME:"*) ;;
+    *) export PATH="$PNPM_HOME:$PATH" ;;
+  esac # pnpm end
 }
 
 setup_path
@@ -99,6 +106,7 @@ complete -C '/opt/homebrew/bin/aws_completer' aws
 # terraform -install-autocomplete
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
+alias tf=terraform
 
 # SECTION - my functions
 
@@ -165,3 +173,4 @@ export FZF_DEFAULT_OPTS=" \
 --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
 --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
 --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
+
