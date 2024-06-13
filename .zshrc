@@ -28,6 +28,9 @@ alias vi=nvim
 ## wget alternative
 alias wget="curl -O -L "
 
+# terraform
+alias tf=terraform
+
 # SECTION - ENVIRONMENT VARIABLES
 
 export ZSH="$HOME/.oh-my-zsh"
@@ -106,7 +109,11 @@ complete -C '/opt/homebrew/bin/aws_completer' aws
 # terraform -install-autocomplete
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
-alias tf=terraform
+
+# pnpm completions
+
+[ -s "${HOME}/.local/share/completion-for-pnpm.zsh" ] || pnpm completion zsh > "${HOME}/.local/share/completion-for-pnpm.zsh"
+source "${HOME}/.local/share/completion-for-pnpm.zsh"
 
 # SECTION - my functions
 
