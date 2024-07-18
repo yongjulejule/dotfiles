@@ -24,3 +24,11 @@ vim.cmd [[ set termguicolors ]]
 
 --Line numbers
 vim.wo.number = true
+
+
+-- Highlight on yanked
+vim.cmd [[ autocmd TextYankPost * lua vim.highlight.on_yank {higroup="Visual", timeout=150, on_visual=true} ]]
+
+-- filetype
+
+vim.cmd [[ autocmd BufNewFile,BufRead DockerFile set filetype=dockerfile ]]

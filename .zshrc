@@ -55,7 +55,7 @@ function setup_path {
   #export PATH="/opt/homebrew/bin:/opt/homebrew/opt/postgresql@15/bin:$PATH"
   
   # postgres
-  POSTGRES_PATH="/opt/homebrew/opt/postgresql@15/bin"
+  POSTGRES_PATH="/opt/homebrew/opt/postgresql@16/bin"
   case ":$PATH:" in
     *":$POSTGRES_PATH:"*) ;;
     *) export PATH="$POSTGRES_PATH:$PATH" ;;
@@ -169,15 +169,25 @@ export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # zoxide
-eval "$(zoxide init zsh)"
-alias cd=z
-alias cdi=zi
+
+function setup_zoxide() {
+  eval "$(zoxide init zsh)"
+  alias cd=z
+  alias cdi=zi
+}
+command zoxide &>/dev/null && setup_zoxide
 
 # fzf
-eval "$(fzf --zsh)"
 
-export FZF_DEFAULT_OPTS=" \
---color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
---color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
---color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
 
+function setup_fzf() {
+  eval "$(fzf --zsh)"
+  export FZF_DEFAULT_OPTS=" \
+  --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
+  --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
+  --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
+}
+
+command fzf &>/dev/null && setup_fzf
+
+test -e "${HOME}/.secrets" && source ${HOME}/.secrets
