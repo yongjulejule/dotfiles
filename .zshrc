@@ -145,7 +145,7 @@ function pbpasteToFile {
   pbpaste > $1
 }
 
-function download_image_tistory() {
+function download_image_tistory {
     # Step 1: Get link from clipboard
     link=$(pbpaste)
 
@@ -170,17 +170,17 @@ export NVM_DIR="$HOME/.config/nvm"
 
 # zoxide
 
-function setup_zoxide() {
+function setup_zoxide {
   eval "$(zoxide init zsh)"
   alias cd=z
   alias cdi=zi
 }
-command zoxide &>/dev/null && setup_zoxide
+command -v zoxide &>/dev/null && setup_zoxide
 
 # fzf
 
 
-function setup_fzf() {
+function setup_fzf {
   eval "$(fzf --zsh)"
   export FZF_DEFAULT_OPTS=" \
   --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
@@ -188,6 +188,6 @@ function setup_fzf() {
   --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
 }
 
-command fzf &>/dev/null && setup_fzf
+command -v fzf &>/dev/null && setup_fzf
 
 test -e "${HOME}/.secrets" && source ${HOME}/.secrets
