@@ -6,17 +6,9 @@ plugins=(
 	zsh-navigation-tools
 )
 
+ZSH="${HOME}/.oh-my-zsh"
+
 source $ZSH/oh-my-zsh.sh
-
-function setup_starship() {
-  if [[ `which starship` == "" ]] ; then
-    echo "starship not found"
-    return
-  fi
-  eval "$(starship init zsh)"
-}
-
-setup_starship
 
 source "$HOME/.cargo/env"
 
@@ -88,6 +80,7 @@ function setup_path {
 }
 
 setup_path
+
 
 # SECTION - Completion
 
@@ -168,6 +161,14 @@ export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# starship
+function setup_starship {
+  eval "$(starship init zsh)"
+}
+
+command -v starship &>/dev/null && setup_starship
+
+setup_starship
 # zoxide
 
 function setup_zoxide {

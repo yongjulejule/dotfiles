@@ -19,7 +19,7 @@ show_milliseconds = true
 disabled = true
 
 [aws]
-disabled = true
+disabled = false
 
 [character]
 # Note the use of Catppuccin color 'maroon'

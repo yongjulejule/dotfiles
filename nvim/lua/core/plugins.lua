@@ -1,5 +1,5 @@
 require("lazy").setup({
-  { "catppuccin/nvim",       name = "mocha", priority = 1000 },
+  { "catppuccin/nvim",       name = "Latte", priority = 1000 },
   { "numToStr/Comment.nvim", lazy = false },
   "nvim-tree/nvim-tree.lua",
   "nvim-tree/nvim-web-devicons",
