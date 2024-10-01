@@ -1,5 +1,5 @@
 require("mason-lspconfig").setup({
-  ensure_installed = { "lua_ls", "tsserver", "eslint", "terraformls" },
+  ensure_installed = { "lua_ls", "tsserver", "eslint", "terraformls", "hls" },
 })
 
 local lspconfig = require('lspconfig')
@@ -70,3 +70,5 @@ lspconfig.gleam.setup({})
 
 -- terraform
 lspconfig.terraformls.setup({})
+
+lspconfig.hls.setup({})
