@@ -76,6 +76,14 @@ setup_tmux_dependencies:
 		brew install gitmux; \
 	fi
 
+# mkdir -p ~/.config/tmux/plugins/catppuccin
+# git clone https://github.com/catppuccin/tmux.git ~/.config/tmux/plugins/catppuccin/tmux
+# see https://github.com/catppuccin/tmux it does not integrate with tpm
+setup_tmux_theme:
+	@printf "$(BLUE)Setting up tmux catppuccin...$(RESET)\n"
+	@mkdir -p $(HOME)/.config/tmux/plugins/catppuccin
+	@git clone https://github.com/catppuccin/tmux.git $(HOME)/.config/tmux/plugins/catppuccin/tmux
+
 setup_hammerspoon:
 	@printf "$(BLUE)Setting up hammerspoon...$(RESET)\n"
 	@mkdir -p $(HAMMERSPOON_DIR)
