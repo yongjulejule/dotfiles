@@ -21,6 +21,13 @@ disabled = true
 [aws]
 disabled = false
 
+[kubernetes]
+disabled = false
+format = "[$symbol$context](bold lavender) in "
+contexts = [
+  { context_pattern = ".*prod", style = "red", symbol = "🫷프로덕션임 ㄷㄷㄷ🌟" },
+]
+
 [character]
 # Note the use of Catppuccin color 'maroon'
 success_symbol = "[[♥](green) ❯](maroon)"
@@ -51,6 +58,9 @@ truncation_length = 5
 style = "bold lavender"
 # fish_style_pwd_dir_length = 2
 home_symbol = "🏡 "
+
+[dotnet]
+disabled = true
 
 [palettes.catppuccin_mocha]
 rosewater = "#f5e0dc"

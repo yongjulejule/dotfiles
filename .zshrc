@@ -192,3 +192,5 @@ function setup_fzf {
 command -v fzf &>/dev/null && setup_fzf
 
 test -e "${HOME}/.secrets" && source ${HOME}/.secrets
+
+command -v nx && source ${HOME}/.nx-completion/nx-completion.plugin.zsh

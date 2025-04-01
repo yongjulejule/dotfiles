@@ -88,3 +88,8 @@ setup_hammerspoon:
 	@printf "$(BLUE)Setting up hammerspoon...$(RESET)\n"
 	@mkdir -p $(HAMMERSPOON_DIR)
 	@ln -sf $(CURDIR)/.hammerspoon/* $(HAMMERSPOON_DIR)
+
+setup_haskell:
+	@printf "$(BLUE)Setting up haskell...$(RESET)\n"
+	@curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
+
