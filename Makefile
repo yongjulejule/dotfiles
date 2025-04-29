@@ -21,7 +21,7 @@ help:
 	@printf "  $(GREEN)install$(RESET)               Apply all dotfiles to this machine\n"
 
 # Default target
-install: setup_zsh setup_nvim setup_tmux setup_hammerspoon
+install: setup_zsh setup_nvim setup_tmux setup_hammerspoon setup_gitconfig
 	@printf "$(GREEN)Dotfiles installed successfully!$(RESET)\n"
 
 # Setup zsh
@@ -93,3 +93,6 @@ setup_haskell:
 	@printf "$(BLUE)Setting up haskell...$(RESET)\n"
 	@curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
 
+setup_gitconfig:
+	@printf "$(BLUE)Setting up gitconfig...$(RESET)\n"
+	@ln -sf $(CURDIR)/.gitconfig $(HOME)/.gitconfig

@@ -1,0 +1,64 @@
+[user]
+	name = yongjulejule
+	email = lyjshow200@gmail.com
+[core]
+	editor = nvim
+  username = yongjulejule
+  pager = delta
+[init]
+	defaultBranch = main
+
+# pull & rebase
+[pull]
+  rebase = true
+  ff     = only
+[rebase]
+  authStash = true
+  authsquash = true
+[branch]
+  autosetuprebase = always
+
+# commit & gpg sign
+[commit]
+  template = ~/.gitmessage.txt
+  gpgSign = false
+
+[gpg]
+  program = gpg
+# Diff & delta.
+[include] 
+  path = ~/.config/delta-theme/delta/catppuccin.gitconfig
+[delta]
+  navigate = true
+  side-by-side = true
+  line-numbers = true
+  hyperlinks = true
+  features = "catppuccin-mocha"
+
+[difftool]
+    prompt = true
+[diff]
+    tool = nvimdiff
+[difftool "nvimdiff"]
+    cmd = nvim -d
+[interactive]
+  diffFilter = delta --color-only
+  prompt = true
+
+# merge & diffview.nvim
+# usage - git mergetool
+[merge]
+  tool = diffview
+[mergetool]
+  prompt = false
+  keepBackup = false
+[mergetool "diffview"]
+  cmd = nvim -n -c "DiffviewOpen" "$MERGE"
+
+# ETC
+[rerere]
+	enabled = true
+[gc]
+  auto = 256
+[fetch]
+  prune = true

@@ -150,6 +150,8 @@ require("lazy").setup({
       --     NextParagraph = { text = "}", prio = 8 },
       -- },
     },
-  }
+  },
+  { "sindrets/diffview.nvim" }
+
 
 })

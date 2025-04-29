@@ -17,6 +17,7 @@ alias ls=lsd
 alias rm=trash
 alias vim=nvim
 alias vi=nvim
+alias nvimdiff='nvim -d'
 ## wget alternative
 alias wget="curl -O -L "
 
@@ -194,3 +195,43 @@ command -v fzf &>/dev/null && setup_fzf
 test -e "${HOME}/.secrets" && source ${HOME}/.secrets
 
 command -v nx && source ${HOME}/.nx-completion/nx-completion.plugin.zsh
+
+
+function jamo_to_ascii() {
+  BUFFER=${BUFFER//ㅂ/q}
+  BUFFER=${BUFFER//ㅈ/w}
+  BUFFER=${BUFFER//ㄷ/e}
+  BUFFER=${BUFFER//ㄱ/r}
+  BUFFER=${BUFFER//ㅅ/t}
+  BUFFER=${BUFFER//ㅛ/y}
+  BUFFER=${BUFFER//ㅕ/u}
+  BUFFER=${BUFFER//ㅑ/i}
+  BUFFER=${BUFFER//ㅐ/o}
+  BUFFER=${BUFFER//ㅔ/p}
+  BUFFER=${BUFFER//ㅁ/a}
+  BUFFER=${BUFFER//ㄴ/s}
+  BUFFER=${BUFFER//ㅇ/d}
+  BUFFER=${BUFFER//ㄹ/f}
+  BUFFER=${BUFFER//ㅎ/g}
+  BUFFER=${BUFFER//ㅗ/h}
+  BUFFER=${BUFFER//ㅓ/j}
+  BUFFER=${BUFFER//ㅏ/k}
+  BUFFER=${BUFFER//ㅣ/l}
+  BUFFER=${BUFFER//ㅋ/z}
+  BUFFER=${BUFFER//ㅌ/x}
+  BUFFER=${BUFFER//ㅊ/c}
+  BUFFER=${BUFFER//ㅍ/v}
+  BUFFER=${BUFFER//ㅠ/b}
+  BUFFER=${BUFFER//ㅜ/n}
+  BUFFER=${BUFFER//ㅡ/m}
+}
+
+function jamo_accept_line() {
+  jamo_to_ascii    # 먼저 자모→영문으로 치환
+  zle .accept-line # 원래 accept-line(Enter) 동작 수행
+}
+
+function enable_hangul_jamo_mapping() {
+  zle -N accept-line jamo_accept_line
+}
+
