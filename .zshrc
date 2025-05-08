@@ -45,9 +45,6 @@ bindkey ^l forward-char
 # SECTION - PATH
 
 function setup_path {
-  #export PATH="/opt/homebrew/bin:/opt/homebrew/opt/postgresql@15/bin:$PATH"
-  
-  # postgres
   POSTGRES_PATH="/opt/homebrew/opt/postgresql@16/bin"
   case ":$PATH:" in
     *":$POSTGRES_PATH:"*) ;;

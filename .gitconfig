@@ -13,8 +13,9 @@
   rebase = true
   ff     = only
 [rebase]
-  authStash = true
-  authsquash = true
+	autostash = true
+[merge]
+  autostash = true
 [branch]
   autosetuprebase = always
 
