@@ -1,0 +1,26 @@
+# parsed and then tweaked from https://github.com/LOWPROKB/zmk-config-zen-2/blob/main/config/corneish_zen.keymap
+layout:
+  zmk_keyboard: corneish_zen
+  layout_name: foostan_corne_6col_layout
+layers:
+  L0:
+    - ["Tab(Alt)", "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "Bksp"]
+    - ["Ctrl", "A(Ctrl)", "S(Shift)", "D(GUI)", "F(Alt)", "G", "H", "J(Alt)", "K(GUI)", "L(Shift)", ";(Ctrl)", "'"]
+    - ["Shift", "Z", "X", "C", "V", "B", "N", "M", ",", ".", "/", "Esc"]
+    - ["GUI", "Del(Layer1)", "Space", "Enter", "Bksp(Layer2)", "Alt"]
+  L1:
+    - ["Esc", "! 1", "@ 2", "# 3", "$ 4", "% 5", "^ 6", "& 7", "* 8", "( 9", ") 0", "▽"]
+    - ["Ctrl", "▽", "▽", "▽", "$", "▽", "Left", "Down", "Up", "Right", "~", "`"]
+    - ["Shift", "▽", "▽", "ctrl+[", "▽", "▽", "-", "=", "▽", "▽", "▽", "▽"]
+    - ["GUI", "▽", "Space", "Enter", "MO(3)", "▽"]
+  L2:
+    - ["Tab", "! 1(Shift)", "@ 2(Shift)", "# 3(Shift)", "$ 4(Shift)", "% 5(Shift)", "^ 6(Shift)", "& 7(Shift)", "* 8(Shift)", "( 9(Shift)", ") 0(Shift)", "Bksp"]
+    - ["Ctrl", "Mouse 1", "Mouse Up", "Mouse 2", "Wheel Up", "Wheel Down", "| \\(Shift)", "{ [(Shift)", "} ](Shift)", "~ `(Shift)", null, null]
+    - ["Shift", "Mouse Left", "Mouse Down", "Mouse Right", "Wheel Left", "Wheel Right", "| \\", "{ [", "} ]", "~ `", null, null]
+    - ["GUI", "MO(3)", "Space", "Enter", null, null]
+  L3:
+    - ["F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12"]
+    - ["RGB Toggle", "▽", "▽", "▽", "▽", "▽", "Enter", "▽", "▽", "▽", "▽", "▽"]
+    - ["RGB Mode +", "▽", "▽", "▽", "▽", "▽", "▽", "▽", "▽", "▽", "▽", "▽"]
+    - ["GUI", "▽", "Space", "Enter", "▽", "▽"]
+
