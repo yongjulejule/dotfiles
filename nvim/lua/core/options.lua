@@ -12,6 +12,7 @@ vim.opt.autoread = true
 
 vim.opt.smartindent = true
 vim.opt.scrolloff = 999
+vim.opt.relativenumber = true
 
 -- use spaces for tabs and whatnot
 vim.opt.tabstop = 2
