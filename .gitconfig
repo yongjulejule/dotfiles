@@ -63,3 +63,6 @@
   auto = 256
 [fetch]
   prune = true
+
+[push]
+  default = current

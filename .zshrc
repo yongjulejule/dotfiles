@@ -191,7 +191,7 @@ command -v fzf &>/dev/null && setup_fzf
 
 test -e "${HOME}/.secrets" && source ${HOME}/.secrets
 
-command -v nx && source ${HOME}/.nx-completion/nx-completion.plugin.zsh
+command -v nx &>/dev/null && source ${HOME}/.nx-completion/nx-completion.plugin.zsh
 
 
 function jamo_to_ascii() {
@@ -232,3 +232,6 @@ function enable_hangul_jamo_mapping() {
   zle -N accept-line jamo_accept_line
 }
 
+enable_hangul_jamo_mapping
+
+alias claude="${HOME}/.claude/local/claude"
