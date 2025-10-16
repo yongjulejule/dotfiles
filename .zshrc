@@ -234,4 +234,30 @@ function enable_hangul_jamo_mapping() {
 
 enable_hangul_jamo_mapping
 
-alias claude="${HOME}/.claude/local/claude"
+
+function set_zsh_history_env() {
+  ## 히스토리 파일 & 용량
+  export HISTFILE="$HOME/.zsh_history"
+  export HISTSIZE=1000000      # 메모리에 보존
+  export SAVEHIST=$HISTSIZE    # 디스크에 동일 수만큼
+
+  ## 저장·공유 옵션
+  setopt APPEND_HISTORY        # 기존 파일 뒤에 추가
+  setopt INC_APPEND_HISTORY    # 명령 실행 직후 즉시 기록
+  setopt SHARE_HISTORY         # 여러 세션 간 히스토리 실시간 공유
+  setopt EXTENDED_HISTORY      # 타임스탬프 포함
+
+  ## 품질 옵션(선택)
+  setopt HIST_EXPIRE_DUPS_FIRST  # 중복 먼저 삭제
+  setopt HIST_IGNORE_SPACE       # 앞에 공백 넣은 명령은 저장 안 함
+  setopt HIST_VERIFY             # bang‑expansion 눌러도 실행 전 확인
+
+  ## 강제 flush 훅(안전)
+  autoload -Uz add-zsh-hook
+  add-zsh-hook precmd history -a      # 프롬프트 직전에 메모리→파일
+  add-zsh-hook zshexit history -a     # 셸 종료 전 강제 저장
+}
+
+alias claude="{HOME}/.claude/local/claude"
+
+alias cursor="open -a '/Applications/Cursor.app'"
