@@ -258,6 +258,6 @@ function set_zsh_history_env() {
   add-zsh-hook zshexit history -a     # 셸 종료 전 강제 저장
 }
 
-alias claude="{HOME}/.claude/local/claude"
+alias claude="${HOME}/.claude/local/claude"
 
 alias cursor="open -a '/Applications/Cursor.app'"

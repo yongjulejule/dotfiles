@@ -1,5 +1,5 @@
 require("mason-lspconfig").setup({
-  ensure_installed = { "lua_ls", "tsserver", "eslint", "terraformls", "hls" },
+  ensure_installed = { "lua_ls", "tsserver", "eslint", "terraformls" },
 })
 
 local lspconfig = require('lspconfig')
@@ -55,20 +55,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
--- eslint
-lspconfig.eslint.setup({
-  on_attach = function(client, bufnr)
-    vim.api.nvim_create_autocmd('BufWritePre', {
-      buffer = bufnr,
-      command = "EslintFixAll",
-    })
-  end,
-})
-
 -- gleam
 lspconfig.gleam.setup({})
 
 -- terraform
 lspconfig.terraformls.setup({})
-
-lspconfig.hls.setup({})

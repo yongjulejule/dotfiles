@@ -152,10 +152,4 @@ require("lazy").setup({
     },
   },
   { "sindrets/diffview.nvim" },
-  {
-    "m4xshen/hardtime.nvim",
-    lazy = false,
-    dependencies = { "MunifTanjim/nui.nvim" },
-    opts = {},
-  },
 })
