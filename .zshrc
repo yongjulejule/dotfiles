@@ -52,7 +52,7 @@ function setup_path {
   esac # postgres end
 
   # bun
-  export BUN_INSTALL="$HOME/.bun"
+  local BUN_INSTALL="$HOME/.bun"
   export BUN_PATH="$BUN_INSTALL/bin"
 
   case ":$PATH:" in
@@ -62,7 +62,7 @@ function setup_path {
 
 
   # go bin
-  export GO_PATH="${HOME}/go/bin"
+  local GO_PATH="${HOME}/go/bin"
 
   case ":$PATH:" in
     *":$GO_PATH:"*) ;;
@@ -70,11 +70,18 @@ function setup_path {
   esac # go end
 
   # pnpm
-  export PNPM_HOME="/Users/yongjunlee/Library/pnpm"
+  local PNPM_HOME="${HOME}/Library/pnpm"
   case ":$PATH:" in
     *":$PNPM_HOME:"*) ;;
     *) export PATH="$PNPM_HOME:$PATH" ;;
   esac # pnpm end
+
+  # opencode
+  local OPENCODE_PATH="${HOME}/.opencode/bin"
+  case ":$PATH:" in
+    *":$OPENCODE_PATH:"*) ;;
+    *) export PATH="$OPENCODE_PATH:$PATH" ;;
+  esac # opencode end
 }
 
 setup_path
@@ -251,13 +258,11 @@ function set_zsh_history_env() {
   setopt HIST_EXPIRE_DUPS_FIRST  # 중복 먼저 삭제
   setopt HIST_IGNORE_SPACE       # 앞에 공백 넣은 명령은 저장 안 함
   setopt HIST_VERIFY             # bang‑expansion 눌러도 실행 전 확인
-
-  ## 강제 flush 훅(안전)
-  autoload -Uz add-zsh-hook
-  add-zsh-hook precmd history -a      # 프롬프트 직전에 메모리→파일
-  add-zsh-hook zshexit history -a     # 셸 종료 전 강제 저장
 }
+
+set_zsh_history_env
 
 alias claude="${HOME}/.claude/local/claude"
 
 alias cursor="open -a '/Applications/Cursor.app'"
+
