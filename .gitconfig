@@ -1,5 +1,5 @@
 [user]
-	name = yongjulejule
+	name = Yongjun Lee
 	email = lyjshow200@gmail.com
 [core]
 	editor = nvim
@@ -66,3 +66,6 @@
 
 [push]
   default = current
+
+[alias]
+	recommit = !git commit -eF $(git rev-parse --git-dir)/COMMIT_EDITMSG
