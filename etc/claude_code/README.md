@@ -89,4 +89,4 @@ chmod +x ~/.claude/notify.sh
 
 - `noti.sh` - 팝업 + 버튼 클릭 방식
 - `noti_dir.sh` - 배너 알림 + 자동 이동 방식
-- `noti_shortcut.sh` - macOS 단축어 활용 방식
+- `noti_shortcut.sh` - macOS 단축어 활용 방식 (단축어 등록 필요함 https://www.icloud.com/shortcuts/2a36067902a946feac354c83e4356242)
