@@ -9,7 +9,6 @@ vim.opt.laststatus = 2
 vim.opt.autowrite = true
 vim.opt.cursorline = true
 vim.opt.autoread = true
-
 vim.opt.smartindent = true
 vim.opt.scrolloff = 999
 vim.opt.relativenumber = true

@@ -1,5 +1,5 @@
 require("mason-lspconfig").setup({
-  ensure_installed = { "lua_ls", "tsserver", "eslint", "terraformls" },
+  ensure_installed = { "lua_ls", "typescript-language-server", "eslint", "terraformls" },
 })
 
 local lspconfig = require('lspconfig')

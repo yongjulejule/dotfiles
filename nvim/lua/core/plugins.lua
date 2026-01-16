@@ -15,8 +15,6 @@ require("lazy").setup({
   -- lint
   "mfussenegger/nvim-lint",
   "rshkarin/mason-nvim-lint",
-  -- formatter
-  'MunifTanjim/prettier.nvim',
   -- lsp
   "neovim/nvim-lspconfig",
   "L3MON4D3/LuaSnip",
@@ -60,6 +58,33 @@ require("lazy").setup({
   {
     'stevearc/conform.nvim',
     opts = {},
+  },
+  {
+    "tris203/precognition.nvim",
+    -- event = "VeryLazy",
+    opts = {
+      -- startVisible = true,
+      -- showBlankVirtLine = true,
+      -- highlightColor = { link = "Comment" },
+      -- hints = {
+      --      Caret = { text = "^", prio = 2 },
+      --      Dollar = { text = "$", prio = 1 },
+      --      MatchingPair = { text = "%", prio = 5 },
+      --      Zero = { text = "0", prio = 1 },
+      --      w = { text = "w", prio = 10 },
+      --      b = { text = "b", prio = 9 },
+      --      e = { text = "e", prio = 8 },
+      --      W = { text = "W", prio = 7 },
+      --      B = { text = "B", prio = 6 },
+      --      E = { text = "E", prio = 5 },
+      -- },
+      -- gutterHints = {
+      --     G = { text = "G", prio = 10 },
+      --     gg = { text = "gg", prio = 9 },
+      --     PrevParagraph = { text = "{", prio = 8 },
+      --     NextParagraph = { text = "}", prio = 8 },
+      -- },
+    },
   },
   {
     'goolord/alpha-nvim',
@@ -122,33 +147,6 @@ require("lazy").setup({
         "<cmd>Trouble qflist toggle<cr>",
         desc = "Quickfix List (Trouble)",
       },
-    },
-  },
-  {
-    "tris203/precognition.nvim",
-    -- event = "VeryLazy",
-    opts = {
-      -- startVisible = true,
-      -- showBlankVirtLine = true,
-      -- highlightColor = { link = "Comment" },
-      -- hints = {
-      --      Caret = { text = "^", prio = 2 },
-      --      Dollar = { text = "$", prio = 1 },
-      --      MatchingPair = { text = "%", prio = 5 },
-      --      Zero = { text = "0", prio = 1 },
-      --      w = { text = "w", prio = 10 },
-      --      b = { text = "b", prio = 9 },
-      --      e = { text = "e", prio = 8 },
-      --      W = { text = "W", prio = 7 },
-      --      B = { text = "B", prio = 6 },
-      --      E = { text = "E", prio = 5 },
-      -- },
-      -- gutterHints = {
-      --     G = { text = "G", prio = 10 },
-      --     gg = { text = "gg", prio = 9 },
-      --     PrevParagraph = { text = "{", prio = 8 },
-      --     NextParagraph = { text = "}", prio = 8 },
-      -- },
     },
   },
   { "sindrets/diffview.nvim" },
