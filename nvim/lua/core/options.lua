@@ -32,3 +32,7 @@ vim.cmd [[ autocmd TextYankPost * lua vim.highlight.on_yank {higroup="Visual", t
 -- filetype
 
 vim.cmd [[ autocmd BufNewFile,BufRead DockerFile set filetype=dockerfile ]]
+
+-- undodir
+vim.opt.undofile = true
+vim.opt.undodir = vim.fn.getenv('XDG_CONFIG_HOME') .. '/undodir'

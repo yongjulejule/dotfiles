@@ -18,7 +18,6 @@ vim.lsp.config('lua_ls', {
       workspace = {
         library = {
           [vim.fn.expand "$VIMRUNTIME/lua"] = true,
-          [vim.fn.stdpath "config" .. "/lua"] = true,
         },
       },
     },
@@ -26,13 +25,7 @@ vim.lsp.config('lua_ls', {
 })
 
 -- 3. 서버 활성화 (setup() 대신 enable() 사용)
-vim.lsp.enable('lua_ls')
 vim.lsp.enable('gleam')
-vim.lsp.enable('terraformls')
--- 필요 시 아래 주석 해제 (ensure_installed에 있는 것들)
--- vim.lsp.enable('ts_ls')
--- vim.lsp.enable('eslint')
-
 
 -- 4. Keymaps (LspAttach 이벤트 사용 - 기존 유지)
 vim.api.nvim_create_autocmd('LspAttach', {

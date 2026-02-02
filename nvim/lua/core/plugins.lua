@@ -21,11 +21,11 @@ require("lazy").setup({
   "hrsh7th/nvim-cmp",
   "hrsh7th/cmp-nvim-lsp",
   "saadparwaiz1/cmp_luasnip",
-  {
-    "pmizio/typescript-tools.nvim",
-    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-    opts = {},
-  },
+  -- {
+  --   "pmizio/typescript-tools.nvim",
+  --   dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+  --   opts = {},
+  -- },
   -- telescope
   {
     "nvim-telescope/telescope.nvim",
