@@ -1,4 +1,4 @@
-# external stuffs
+# SECTION - OMZ settings
 plugins=(
 	git
 	zsh-autosuggestions
@@ -7,10 +7,8 @@ plugins=(
 )
 
 ZSH="${HOME}/.oh-my-zsh"
-
+zstyle ':omz:update' mode auto
 source $ZSH/oh-my-zsh.sh
-
-source "$HOME/.cargo/env"
 
 # SECTION - ALIASES
 alias ls=lsd
@@ -18,11 +16,12 @@ alias rm=trash
 alias vim=nvim
 alias vi=nvim
 alias nvimdiff='nvim -d'
+alias cursor="open -a '/Applications/Cursor.app'"
+alias k="kubectl"
+alias tf=terraform
+alias tmux-new='exec tmux new-session -A -s $(basename "$PWD")'
 ## wget alternative
 alias wget="curl -O -L "
-
-# terraform
-alias tf=terraform
 
 # SECTION - ENVIRONMENT VARIABLES
 
@@ -33,7 +32,6 @@ export EDITOR=`which nvim`
 export LANG=en_US.UTF-8
 export JAVA_HOME=$(/usr/libexec/java_home -v 11)
 export XDG_CONFIG_HOME="$HOME/.config"
-
 
 # SECTION - KEY BINDINGS
 
@@ -82,6 +80,13 @@ function setup_path {
     *":$OPENCODE_PATH:"*) ;;
     *) export PATH="$OPENCODE_PATH:$PATH" ;;
   esac # opencode end
+
+  # local bin
+  local LOCAL_BIN="${HOME}/.local/bin"
+  case ":$PATH:" in
+    *":$LOCAL_BIN:"*) ;;
+    *) export PATH="$LOCAL_BIN:$PATH" ;;
+  esac # local bin end
 }
 
 setup_path
@@ -160,6 +165,8 @@ function download_image_tistory {
 }
 
 # SECTION - External programs
+
+source "$HOME/.cargo/env"
 
 # nvm
 export NVM_DIR="$HOME/.config/nvm"
@@ -261,8 +268,4 @@ function set_zsh_history_env() {
 }
 
 set_zsh_history_env
-
-alias claude="${HOME}/.claude/local/claude"
-
-alias cursor="open -a '/Applications/Cursor.app'"
 
