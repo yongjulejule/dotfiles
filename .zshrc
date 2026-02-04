@@ -184,9 +184,12 @@ setup_starship
 # zoxide
 
 function setup_zoxide {
-  eval "$(zoxide init zsh)"
-  alias cd=z
-  alias cdi=zi
+  if [[ "$CLAUDECODE" != "1" ]]; then
+      eval "$(zoxide init --cmd cd zsh)"
+  fi
+  # eval "$(zoxide init zsh)"
+  # alias cd=z
+  # alias cdi=zi
 }
 command -v zoxide &>/dev/null && setup_zoxide
 
