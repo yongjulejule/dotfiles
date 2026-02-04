@@ -24,6 +24,16 @@ vim.lsp.config('lua_ls', {
   }
 })
 
+
+vim.lsp.config('biome', {
+  on_attach = function(client)
+    client.server_capabilities.definitionProvider = false
+    client.server_capabilities.referencesProvider = false
+    client.server_capabilities.implementationProvider = false
+  end,
+})
+
+vim.lsp.enable('biome')
 -- 3. 서버 활성화 (setup() 대신 enable() 사용)
 vim.lsp.enable('gleam')
 
